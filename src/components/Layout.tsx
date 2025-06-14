@@ -10,13 +10,18 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
+  DropdownMenuRadioGroup,
+  DropdownMenuRadioItem,
 } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
 import { CircleUser, Search } from "lucide-react";
+import { UserRole, useUserRole } from "@/contexts/UserRoleContext";
 
 export function Layout() {
+  const { role, setRole } = useUserRole();
+
   return (
-    <SidebarProvider collapsedWidth={56}>
+    <SidebarProvider>
       <div className="flex min-h-screen w-full bg-muted/40">
         <AppSidebar />
         <div className="flex flex-col flex-1">
@@ -41,7 +46,14 @@ export function Layout() {
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end">
-                <DropdownMenuLabel>My Account</DropdownMenuLabel>
+                <DropdownMenuLabel>My Account ({role})</DropdownMenuLabel>
+                <DropdownMenuSeparator />
+                <DropdownMenuLabel>Switch Role</DropdownMenuLabel>
+                 <DropdownMenuRadioGroup value={role} onValueChange={(value) => setRole(value as UserRole)}>
+                  <DropdownMenuRadioItem value="Admin">Admin</DropdownMenuRadioItem>
+                  <DropdownMenuRadioItem value="Cashier">Cashier</DropdownMenuRadioItem>
+                  <DropdownMenuRadioItem value="Inventory Manager">Inventory Manager</DropdownMenuRadioItem>
+                </DropdownMenuRadioGroup>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem>Settings</DropdownMenuItem>
                 <DropdownMenuItem>Support</DropdownMenuItem>
