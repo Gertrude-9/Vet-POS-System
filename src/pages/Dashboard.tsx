@@ -1,8 +1,10 @@
 
 import { useUserRole } from "@/contexts/UserRoleContext";
 import AdminDashboard from "./dashboards/AdminDashboard";
-import CashierDashboard from "./dashboards/CashierDashboard";
-import InventoryManagerDashboard from "./dashboards/InventoryManagerDashboard";
+import ChairpersonDashboard from "./dashboards/ChairpersonDashboard";
+import MemberDashboard from "./dashboards/MemberDashboard";
+import SecretaryDashboard from "./dashboards/SecretaryDashboard";
+import TreasurerDashboard from "./dashboards/TreasurerDashboard";
 
 const Dashboard = () => {
   const { role } = useUserRole();
@@ -11,10 +13,14 @@ const Dashboard = () => {
     switch (role) {
       case 'Admin':
         return <AdminDashboard />;
-      case 'Cashier':
-        return <CashierDashboard />;
-      case 'Inventory Manager':
-        return <InventoryManagerDashboard />;
+      case 'Chairperson':
+        return <ChairpersonDashboard />;
+      case 'Secretary':
+        return <SecretaryDashboard />;
+      case 'Treasurer':
+        return <TreasurerDashboard />;
+      case 'Member':
+        return <MemberDashboard />;
       default:
         return <AdminDashboard />;
     }

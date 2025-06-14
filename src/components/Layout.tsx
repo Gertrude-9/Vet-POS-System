@@ -51,8 +51,10 @@ export function Layout() {
                 <DropdownMenuLabel>Switch Role</DropdownMenuLabel>
                  <DropdownMenuRadioGroup value={role} onValueChange={(value) => setRole(value as UserRole)}>
                   <DropdownMenuRadioItem value="Admin">Admin</DropdownMenuRadioItem>
-                  <DropdownMenuRadioItem value="Cashier">Cashier</DropdownMenuRadioItem>
-                  <DropdownMenuRadioItem value="Inventory Manager">Inventory Manager</DropdownMenuRadioItem>
+                  <DropdownMenuRadioItem value="Chairperson">Chairperson</DropdownMenuRadioItem>
+                  <DropdownMenuRadioItem value="Secretary">Secretary</DropdownMenuRadioItem>
+                  <DropdownMenuRadioItem value="Treasurer">Treasurer</DropdownMenuRadioItem>
+                  <DropdownMenuRadioItem value="Member">Member</DropdownMenuRadioItem>
                 </DropdownMenuRadioGroup>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem>Settings</DropdownMenuItem>
