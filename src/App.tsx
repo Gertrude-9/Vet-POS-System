@@ -3,6 +3,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Login from "./components/Login";
 import NotFound from "./pages/NotFound";
 import { Layout } from "./components/Layout";
 import Dashboard from "./pages/Dashboard";
@@ -12,6 +13,14 @@ import Customers from "./pages/Customers";
 import Reports from "./pages/Reports";
 import Settings from "./pages/Settings";
 import { UserRoleProvider } from "./contexts/UserRoleContext";
+import AdminDashboard from "./pages/dashboards/AdminDashboard";
+import CashierDashboard from "./pages/dashboards/CashierDashboard";
+import InventoryManagerDashboard from "./pages/dashboards/InventoryManagerDashboard";
+import Pos from "./pages/Pos";
+import Products from "./pages/Products";
+import SupplierManagement from "./pages/SupplierManagement";
+import DiscountManagement from "./pages/Discount";
+import Discount from "./pages/Discount";
 
 
 const queryClient = new QueryClient();
@@ -25,12 +34,21 @@ const App = () => (
         <BrowserRouter>
           <Routes>
             <Route element={<Layout />}>
+            <Route path="/" element={<Login />} />
               <Route path="/" element={<Dashboard />} />
               <Route path="/inventory" element={<Inventory />} />
               <Route path="/sales" element={<Sales />} />
+              <Route path="/suppliers" element={<SupplierManagement />} />
+              <Route path="/discount" element={<Discount />} />
+              <Route path="/pos" element={<Pos />} />
+              <Route path="/products" element={<Products />} />
               <Route path="/customers" element={<Customers />} />
               <Route path="/reports" element={<Reports />} />
               <Route path="/settings" element={<Settings />} />
+              <Route path="/admin-dashboard" element={<AdminDashboard />} />
+             <Route path="/cashier-dashboard" element={<CashierDashboard />} />
+             <Route path="/inventory-manager-dashboard" element={<InventoryManagerDashboard />} />
+  
             </Route>
             <Route path="*" element={<NotFound />} />
           </Routes>
