@@ -8,7 +8,6 @@ import NotFound from "./pages/NotFound";
 import { Layout } from "./components/Layout";
 import Dashboard from "./pages/Dashboard";
 import Inventory from "./pages/Inventory";
-import Sales from "./pages/Sales";
 import Customers from "./pages/Customers";
 import Reports from "./pages/Reports";
 import Settings from "./pages/Settings";
@@ -19,7 +18,6 @@ import InventoryManagerDashboard from "./pages/dashboards/InventoryManagerDashbo
 import Pos from "./pages/Pos";
 import Products from "./pages/Products";
 import SupplierManagement from "./pages/SupplierManagement";
-import DiscountManagement from "./pages/Discount";
 import Discount from "./pages/Discount";
 
 
@@ -37,7 +35,6 @@ const App = () => (
             <Route path="/" element={<Login />} />
               <Route path="/" element={<Dashboard />} />
               <Route path="/inventory" element={<Inventory />} />
-              <Route path="/sales" element={<Sales />} />
               <Route path="/suppliers" element={<SupplierManagement />} />
               <Route path="/discount" element={<Discount />} />
               <Route path="/pos" element={<Pos />} />

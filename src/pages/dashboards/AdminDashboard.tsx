@@ -13,60 +13,26 @@ const stats = [
 // 🔍 Filter products where quantity is below reorder point
 const lowStockItems = products.filter(product => product.quantity < product.reorderPoint);
 
-const AdminDashboard = () => {
-  return (
-<<<<<<< HEAD
-    <div className="flex flex-col gap-4">
-      <h1 className="text-2xl font-semibold">Karacel Admin Dashboard</h1>
-      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Member Management</CardTitle>
-            <Users className="h-4 w-4 text-muted-foreground" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">15 Members</div>
-            <p className="text-xs text-muted-foreground">Manage member details and status.</p>
-          </CardContent>
-        </Card>
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Register Member</CardTitle>
-            <UserPlus className="h-4 w-4 text-muted-foreground" />
-          </CardHeader>
-          <CardContent>
-            <p className="text-sm text-muted-foreground">Add a new member to the SACCO.</p>
-          </CardContent>
-        </Card>
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">System Reports</CardTitle>
-            <BarChart2 className="h-4 w-4 text-muted-foreground" />
-          </CardHeader>
-          <CardContent>
-            <p className="text-sm text-muted-foreground">View comprehensive loan and financial analytics.</p>
-          </CardContent>
-        </Card>
-=======
-    <div className="flex-1 space-y-4 p-4 sm:p-6 lg:p-8">
-      <h2 className="text-3xl font-bold tracking-tight">Admin Dashboard</h2>
+export const AdminDashboard = () => {
+return (
+  <div className="flex-1 space-y-4 p-4 sm:p-6 lg:p-8">
+    <h2 className="text-3xl font-bold tracking-tight">Admin Dashboard</h2>
 
-      {/* Top Stats Cards */}
-      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-        {stats.map((stat) => (
-          <Card key={stat.name}>
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">{stat.name}</CardTitle>
-              <stat.icon className="h-4 w-4 text-muted-foreground" />
-            </CardHeader>
-            <CardContent>
-              <div className="text-2xl font-bold">{stat.value}</div>
-              <p className="text-xs text-muted-foreground">{stat.change}</p>
-            </CardContent>
-          </Card>
-        ))}
->>>>>>> 24bc24a (Added new features)
-      </div>
+    {/* Top Stats Cards */}
+    <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+      {stats.map((stat) => (
+        <Card key={stat.name}>
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-sm font-medium">{stat.name}</CardTitle>
+            <stat.icon className="h-4 w-4 text-muted-foreground" />
+          </CardHeader>
+          <CardContent>
+            <div className="text-2xl font-bold">{stat.value}</div>
+            <p className="text-xs text-muted-foreground">{stat.change}</p>
+          </CardContent>
+        </Card>
+      ))}
+    </div>
 
       {/* Sales and Low Stock Alerts */}
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-7">

@@ -4,35 +4,6 @@ import { Card, CardContent, CardHeader, CardTitle } from "../components/ui/card"
 import { UserCog, Laptop, HardHat } from "lucide-react";
 import { Link } from "react-router-dom";
 
-<<<<<<< HEAD
-import { useUserRole } from "@/contexts/UserRoleContext";
-import AdminDashboard from "./dashboards/AdminDashboard";
-import ChairpersonDashboard from "./dashboards/ChairpersonDashboard";
-import MemberDashboard from "./dashboards/MemberDashboard";
-import SecretaryDashboard from "./dashboards/SecretaryDashboard";
-import TreasurerDashboard from "./dashboards/TreasurerDashboard";
-
-const Dashboard = () => {
-  const { role } = useUserRole();
-
-  const renderDashboard = () => {
-    switch (role) {
-      case 'Admin':
-        return <AdminDashboard />;
-      case 'Chairperson':
-        return <ChairpersonDashboard />;
-      case 'Secretary':
-        return <SecretaryDashboard />;
-      case 'Treasurer':
-        return <TreasurerDashboard />;
-      case 'Member':
-        return <MemberDashboard />;
-      default:
-        return <AdminDashboard />;
-    }
-  };
-
-=======
 const roles = [
   { name: "Admin", description: "Full access to all system features.", icon: UserCog, href: "/admin-dashboard" },
   { name: "Cashier", description: "Access to Point of Sale and daily reports.", icon: Laptop, href: "/cashier-dashboard" },
@@ -40,7 +11,6 @@ const roles = [
 ];
 
 const Dashboard = () => {
->>>>>>> 24bc24a (Added new features)
   return (
     <div className="flex-1 space-y-8 p-4 sm:p-6 lg:p-8 flex flex-col items-center justify-center">
       <div className="text-center">
