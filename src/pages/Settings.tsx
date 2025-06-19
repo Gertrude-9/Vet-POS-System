@@ -28,10 +28,7 @@ const SettingsPage = () => {
 
   return (
     <div className="container mx-auto py-8">
-      <div className="flex items-center gap-4 mb-6">
-        <Settings className="h-8 w-8" />
-        <h1 className="text-3xl font-bold">System Settings</h1>
-      </div>
+     
 
       <Tabs defaultValue="general" className="w-full">
         <TabsList className="grid w-full grid-cols-5">

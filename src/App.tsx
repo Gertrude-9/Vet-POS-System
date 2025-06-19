@@ -5,7 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./components/Login";
 import NotFound from "./pages/NotFound";
-import { Layout } from "./components/Layout";
+import Layout from "./components/Layout";
 import Dashboard from "./pages/Dashboard";
 import Inventory from "./pages/Inventory";
 import Customers from "./pages/Customers";
@@ -19,6 +19,9 @@ import Pos from "./pages/Pos";
 import Products from "./pages/Products";
 import SupplierManagement from "./pages/SupplierManagement";
 import Discount from "./pages/Discount";
+import StockAlerts from "./pages/StockAlerts";
+import UserManagement from "./pages/UserManagement";
+import Restock from "./pages/Restock";
 
 
 const queryClient = new QueryClient();
@@ -28,13 +31,18 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
+      
       <UserRoleProvider>
         <BrowserRouter>
           <Routes>
-            <Route element={<Layout />}>
             <Route path="/" element={<Login />} />
+            <Route element={<Layout />}>
+            {/* <Route path="/" element={<Login />} /> */}
               <Route path="/" element={<Dashboard />} />
               <Route path="/inventory" element={<Inventory />} />
+              <Route path="/users" element={<UserManagement />} />
+              <Route path="/restock" element={<Restock />} />
+              <Route path="/alerts" element={<StockAlerts />} />
               <Route path="/suppliers" element={<SupplierManagement />} />
               <Route path="/discount" element={<Discount />} />
               <Route path="/pos" element={<Pos />} />
@@ -44,7 +52,7 @@ const App = () => (
               <Route path="/settings" element={<Settings />} />
               <Route path="/admin-dashboard" element={<AdminDashboard />} />
              <Route path="/cashier-dashboard" element={<CashierDashboard />} />
-             <Route path="/inventory-manager-dashboard" element={<InventoryManagerDashboard />} />
+             <Route path="/inventory-dashboard" element={<InventoryManagerDashboard />} />
   
             </Route>
             <Route path="*" element={<NotFound />} />

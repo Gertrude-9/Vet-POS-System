@@ -4,6 +4,7 @@ import {
   Briefcase,
   Home,
   LineChart,
+  Link,
   Package,
   Settings,
   ShoppingCart,
@@ -32,6 +33,7 @@ const menuItems = [
   { href: "/suppliers", label: "Supplier Management", icon: Truck },
   { href: "/reports", label: "Reports", icon: LineChart },
   { href: "/settings", label: "Settings", icon: Settings },
+  { href: "/admin-dashboard", label: "Admin Dashboard", icon: Briefcase }
 ];
 
 export function AppSidebar() {

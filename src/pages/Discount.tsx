@@ -126,7 +126,7 @@ const DiscountManagement = () => {
   return (
     <div className="p-6 space-y-6">
       <div className="flex justify-between items-center">
-        <h1 className="text-3xl font-bold">Discount & Promotion Management</h1>
+        
         <Button onClick={() => setIsAddingDiscount(true)}>
           <PlusCircle className="mr-2 h-4 w-4" />
           Add Discount

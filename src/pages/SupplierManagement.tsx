@@ -137,7 +137,6 @@ const SupplierManagement = () => {
   return (
     <div className="p-6 space-y-6">
       <div className="flex justify-between items-center">
-        <h1 className="text-3xl font-bold">Supplier Management</h1>
         <div className="flex gap-2">
           <Button onClick={() => setIsAddingSupplier(true)}>
             <PlusCircle className="mr-2 h-4 w-4" />

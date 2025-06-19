@@ -138,10 +138,7 @@ const InventoryPage = () => {
   return (
     <div className="p-6 space-y-6">
       <div className="flex justify-between items-center">
-        <div>
-          <h1 className="text-3xl font-bold">Veterinary Inventory</h1>
-          <p className="text-muted-foreground">Manage your veterinary drug products and inventory</p>
-        </div>
+       
         {/* Removed erroneous conditional rendering block */}
       </div>
 
@@ -273,10 +270,7 @@ const InventoryPage = () => {
 
       {activeTab === "inventory" && (
         <Card>
-          <CardHeader>
-            <CardTitle>Current Inventory</CardTitle>
-            <CardDescription>Manage your veterinary drug inventory</CardDescription>
-          </CardHeader>
+          
           <CardContent>
             <Table>
               <TableHeader>
