@@ -6,7 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/com
 import { Label } from "@/components/ui/label";
 import { Table, TableHeader, TableRow, TableHead, TableBody, TableCell } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
-import { AlertCircle, Package, PlusCircle, ArrowDownCircle, ArrowUpCircle } from "lucide-react";
+import { AlertCircle, Package, PlusCircle, ArrowDownCircle, ArrowUpCircle, ArrowLeft } from "lucide-react";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
 type Product = {
@@ -162,19 +162,18 @@ const InventoryPage = () => {
       {activeTab === "addProduct" && (
         <Card>
           <CardHeader>
-            <div className="flex justify-between items-start">
-              <div>
-                <CardTitle>Add New Product</CardTitle>
-                <CardDescription>Enter details for the new veterinary drug</CardDescription>
-              </div>
-              <Button 
-                variant="ghost" 
-                onClick={() => setActiveTab("inventory")}
-              >
-                Back to Inventory
-              </Button>
-            </div>
-          </CardHeader>
+                <div className="flex justify-between items-center">
+                 
+                  <Button 
+                    variant="outline" 
+                    onClick={() => setActiveTab("inventory")}
+                    className="ml-4"
+                  >
+                    <ArrowLeft className="mr-2 h-4 w-4" />
+                    Back to Inventory
+                  </Button>
+                </div>
+        </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="space-y-2">

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   Link,
   Outlet,
@@ -28,6 +28,7 @@ import {
   HeartPulse // Placeholder icon for VET-POS, replace if needed
 } from 'lucide-react';
 
+
 const navigationConfig = {
   admin: [
     { href: "/admin-dashboard", label: "Admin Dashboard", icon: Briefcase },
@@ -48,6 +49,33 @@ const navigationConfig = {
     { href: "/alerts", label: "Stock Alerts", icon: AlertCircle },
     { href: "/restock", label: "Restock", icon: RefreshCw },
   ],
+};
+
+const UserInfo = () => {
+  const [userInfo, setUserInfo] = useState<{ email: string; name: string; role: string } | null>(null);
+
+  useEffect(() => {
+    const storedUser = localStorage.getItem('user');
+    if (storedUser) {
+      try {
+        setUserInfo(JSON.parse(storedUser));
+      } catch (e) {
+        console.error('Failed to parse user from localStorage:', e);
+      }
+    }
+  }, []);
+
+  if (!userInfo) return null;
+
+  return (
+    <div className="flex items-center space-x-2">
+      <User size={20} />
+      <div>
+        <p className="font-medium">{userInfo.name} ({userInfo.role})</p>
+        <p className="text-sm text-gray-500">{userInfo.email}</p>
+      </div>
+    </div>
+  );
 };
 
 const Header = ({ onMenuClick, userRole, title }) => {
@@ -84,7 +112,7 @@ const Header = ({ onMenuClick, userRole, title }) => {
             </div>
             <div className="hidden md:block">
               <div className="flex items-center">
-                <span className="text-sm font-medium text-gray-700 capitalize">{userRole} User</span>
+                <span className="text-sm font-medium text-gray-700 capitalize">{userRole}</span>
                 <ChevronDown size={16} className="ml-1 text-gray-500" />
               </div>
             </div>
@@ -198,13 +226,18 @@ const DashboardLayout = () => {
           <div className="flex items-center space-x-3 text-teal-100">
             <User size={20} />
             <div>
-              <p className="font-medium capitalize">{userRole} User</p>
-              <p className="text-sm text-teal-200">user@example.com</p>
+              <p className="font-medium capitalize">{user?.name} ({user?.role})</p>
+              <p className="text-sm text-teal-200">{user?.email}</p>
             </div>
           </div>
-          <button className="mt-3 w-full flex items-center justify-center px-3 py-2 text-teal-100 hover:bg-teal-600 rounded-lg transition-colors">
-            <LogOut size={16} className="mr-2" />
-            Logout
+         <button
+              onClick={() => {
+                localStorage.clear();
+                window.location.href = '/';
+              }}
+              className="mt-6 bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded"
+            >
+              Logout
           </button>
         </div>
       </div>
